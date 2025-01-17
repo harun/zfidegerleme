@@ -1,0 +1,52 @@
+{
+    "header":{
+
+        "ReferenceDocumentItem": "000001",
+        "BusinessTransactionType": "REVA",
+        "CompanyCode": "1000",
+        "MasterFixedAsset": "A00012345678",
+        "FixedAsset": "0001",
+        "DocumentDate": "2023-12-01",
+        "PostingDate": "2023-12-02",
+        "AssetValueDate": "2023-12-03",
+        "DebitCreditCode": "D",
+        "FixedAssetYearOfAcqnCode": "C",
+        "DocumentReferenceID": "REF987654321",
+        "AccountingDocumentHeaderText": "Revaluation Document",
+        "FxdAstRevalAcqnAmtInFC": 15000.00,
+        "FxdAstRevalCYrDeprAmtInFC": 500.00,
+        "FxdAstRevalPrYrDeprAmtInFC": 300.00,
+        "FxdAstRevalFuncnlCrcy": "USD",
+        "AccountingDocumentType": "KR",
+        "AssignmentReference": "ASSIGN12345",
+        "DocumentItemText": "Asset revaluation example"
+    },
+
+    "item":{
+        "AssetDepreciationArea": "01",
+        "SubLedgerAcctLineItemType": "TYPE1",
+        "TransactionCurrency": "USD",
+        "CompanyCodeCurrency": "EUR",
+        "GlobalCurrency": "GBP",
+        "FreeDefinedCurrency1": "JPY",
+        "FreeDefinedCurrency2": "AUD",
+        "FreeDefinedCurrency3": "CAD",
+        "FreeDefinedCurrency4": "CHF",
+        "FreeDefinedCurrency5": "CNY",
+        "FreeDefinedCurrency6": "INR",
+        "FreeDefinedCurrency7": "MXN",
+        "FreeDefinedCurrency8": "BRL",
+        "AmountInTransactionCurrency": 12000.00,
+        "AmountInCompanyCodeCurrency": 11500.00,
+        "AmountInGlobalCurrency": 11000.00,
+        "AmountInFreeDefinedCurrency1": 1500000.00,
+        "AmountInFreeDefinedCurrency2": 12000.00,
+        "AmountInFreeDefinedCurrency3": 11500.00,
+        "AmountInFreeDefinedCurrency4": 11000.00,
+        "AmountInFreeDefinedCurrency5": 10800.00,
+        "AmountInFreeDefinedCurrency6": 10500.00,
+        "AmountInFreeDefinedCurrency7": 10200.00,
+        "AmountInFreeDefinedCurrency8": 10000.00
+
+    }
+}

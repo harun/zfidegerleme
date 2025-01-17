@@ -1,0 +1,148 @@
+{
+    "_version": "1.64.0",
+    "sap.app": {
+        "id": "com.zfidegerleme",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "0.0.1"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "resources": "resources.json",
+        "sourceTemplate": {
+            "id": "@sap/generator-fiori:basic",
+            "version": "1.15.5",
+            "toolsId": "f9ce3969-4c4a-4959-873f-70a523919907"
+        },
+        "dataSources": {
+            "fixedassetrevaluation": {
+                "uri": "/sap/opu/odata4/sap/api_fixedassetrevaluation/srvd_a2x/sap/fixedassetrevaluation/0001/",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/fixedassetrevaluation/metadata.xml",
+                    "odataVersion": "4.0"
+                }
+            }
+        },
+        "crossNavigation": {
+            "inbounds": {
+                "zfi_degerleme-display": {
+                    "semanticObject": "zfi_degerleme",
+                    "action": "display",
+                    "title": "{{flpTitle}}",
+                    "subTitle": "{{flpSubtitle}}",
+                    "signature": {
+                        "parameters": {},
+                        "additionalParameters": "allowed"
+                    }
+                }
+            }
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": false,
+        "dependencies": {
+            "minUI5Version": "1.124.10",
+            "libs": {
+                "sap.m": {},
+                "sap.ui.core": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "com.zfidegerleme.i18n.i18n"
+                }
+            },
+            "ui": {
+                "type": "sap.ui.model.json.JSONModel",
+                "settings": {},
+                "preload": true
+            },
+            "bo": {
+                "type": "sap.ui.model.json.JSONModel",
+                "uri": "model/bo.json",
+                "settings": {},
+                "preload": true
+            },
+            "fixedassetrevaluation": {
+                "dataSource": "fixedassetrevaluation",
+                "preload": true,
+                "settings": {
+                    "synchronizationMode": "None",
+                    "operationMode": "Server",
+                    "autoExpandSelect": true,
+                    "earlyRequests": true
+                }
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ],
+            "js": [
+                {
+                    "uri": "util/xlsx.full.min.js"
+                }
+            ]
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "controlAggregation": "pages",
+                "controlId": "app",
+                "transition": "slide",
+                "type": "View",
+                "viewType": "XML",
+                "path": "com.zfidegerleme.view",
+                "async": true,
+                "viewPath": "com.zfidegerleme.view"
+            },
+            "routes": [
+                {
+                    "name": "RouteS1",
+                    "pattern": ":?query:",
+                    "target": [
+                        "TargetS1"
+                    ]
+                }
+            ],
+            "targets": {
+                "TargetS1": {
+                    "id": "S1",
+                    "name": "S1"
+                }
+            }
+        },
+        "rootView": {
+            "viewName": "com.zfidegerleme.view.App",
+            "type": "XML",
+            "id": "App"
+        }
+    }
+}

@@ -1,0 +1,194 @@
+<mvc:View
+    displayBlock="true"
+    xmlns:mvc="sap.ui.core.mvc"
+    controllerName="com.zfidegerleme.controller.S1"
+    height="100%"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:fb="sap.ui.comp.filterbar"
+    xmlns:l="sap.ui.layout"
+    xmlns:t="sap.ui.table"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:u="sap.ui.unified"
+    xmlns:layout="sap.ui.layout"
+    xmlns:data="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+>
+    <Page
+        id="page"
+        title="{i18n>title}"
+        showHeader="false"
+    >
+        <content>
+            <FlexBox
+                direction="Row"
+                alignItems="Center"
+                justifyContent="Start"
+            >
+                <u:FileUploader
+                    id="fileUploader"
+                    fileType="xls,xlsx"
+                    placeholder="Dosya seçin"
+                    change="onFileChange"
+                    class="sapUiSmallMargin"
+                />
+
+                <Button
+                    text="Kaydet"
+                    type="Emphasized"
+                    press="onPressKaydet"
+                    class="sapUiSmallMargin"
+                />
+                <Link
+                    text="Şablonu İndir"
+                    href="./util/degerleme-sablon.xlsx"
+                    target="_blank"
+                />
+            </FlexBox>
+
+            <f:SimpleForm
+                id="headerForm"
+                editable="false"
+                layout="ResponsiveGridLayout"
+                labelSpanXL="4"
+                labelSpanL="4"
+                labelSpanM="2"
+                labelSpanS="12"
+                adjustLabelSpan="false"
+                columnsXL="2"
+                columnsL="2"
+                columnsM="1"
+                singleContainerFullSize="false"
+                class="sapUiResponsiveContentPadding"
+                width="100%"
+            >
+                <!-- Form Title -->
+                <Title
+                    text="Başlık Bilgileri"
+                    level="H2"
+                />
+
+                <!-- Company Code -->
+                <Label text="CompanyCode" />
+                <Input
+                    value="{ui>/header/CompanyCode}"
+                    editable="false"
+                />
+
+                <!-- Functional Currency -->
+                <Label text="FxdAstRevalFuncnlCrcy" />
+                <Input
+                    value="{ui>/header/FxdAstRevalFuncnlCrcy}"
+                    editable="false"
+                />
+
+                <!-- Document Date -->
+                <Label text="DocumentDate" />
+                <DatePicker value="{path:'ui>/header/DocumentDate', formatter:'.formatDate'}" />
+
+
+                
+            
+
+                <!-- Debit Credit Code -->
+                <Label text="DebitCreditCode" />
+                <Input
+                    value="{ui>/header/DebitCreditCode}"
+                    editable="false"
+                />
+
+                <!-- Document Reference ID -->
+                <Label text="DocumentReferenceID" />
+                <Input
+                    value="{ui>/header/DocumentReferenceID}"
+                    editable="false"
+                />
+
+                <!-- Posting Date -->
+                <Label text="PostingDate" />
+                <DatePicker value="{path:'ui>/header/PostingDate', formatter:'.formatDate'}" />
+
+                <!-- Asset Value Date -->
+                <Label text="AAssetValueDate" />
+                <DatePicker value="{path:'ui>/header/AssetValueDate', formatter:'.formatDate'}" />
+            </f:SimpleForm>
+
+            <Table
+                id="excelTable"
+                inset="false"
+                items="{ui>/items}"
+            >
+                <headerToolbar>
+                    <Toolbar>
+                        <Title text="Kalemler" />
+                    </Toolbar>
+                </headerToolbar>
+                <columns>
+                    <Column>
+                        <Text text="MasterFixedAsset" />
+                    </Column>
+                    <Column>
+                        <Text text="FixedAsset" />
+                    </Column>
+                    <Column>
+                        <Text text="FxdAstRevalAcqnAmtInFC" />
+                    </Column>
+                    <Column>
+                        <Text text="FxdAstRevalCYrDeprAmtInFC" />
+                    </Column>
+                    <Column>
+                        <Text text="FxdAstRevalPrYrDeprAmtInFC" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{ui>FxdAstRevalPrYrDeprAmtInFC}" />
+                            <Text text="{ui>FixedAsset}" />
+                            <Text text="{ui>FxdAstRevalAcqnAmtInFC}" />
+
+                            <ObjectNumber
+                                number="{path:'ui>FxdAstRevalCYrDeprAmtInFC', type: 'sap.ui.model.type.Float', formatOptions: { decimals: 2 }}"
+                                unit="{ui>F}"
+                                emphasized="true"
+                            />
+
+                            <ObjectNumber
+                                number="{path:'ui>FxdAstRevalPrYrDeprAmtInFC', type: 'sap.ui.model.type.Float', formatOptions: { decimals: 2 }}"
+                                unit="{ui>F}"
+                                emphasized="true"
+                            />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+
+            <Table
+                id="idLedgerTable"
+                inset="false"
+                items="{ui>/ledger}"
+            >
+                <headerToolbar>
+                    <Toolbar>
+                        <Title text="Ledger" />
+                    </Toolbar>
+                </headerToolbar>
+                <columns>
+                    <Column>
+                        <Text text="Ledger" />
+                    </Column>
+                    <Column>
+                        <Text text="AssetDepreciationArea" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{ui>Ledger}" />
+                            <Text text="{ui>AssetDepreciationArea}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+    </Page>
+</mvc:View>

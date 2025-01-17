@@ -1,0 +1,1264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="SAP__common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="SAP__measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CORE',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Core.V1" Alias="SAP__core"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="SAP__capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="SAP__aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="SAP__validation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="SAP__UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HTML5',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.HTML5.v1" Alias="SAP__HTML5"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PDF',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PDF.v1" Alias="SAP__PDF"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_SESSION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Session.v1" Alias="SAP__session"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ODM',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.ODM.v1" Alias="SAP__ODM"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HIERARCHY',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Hierarchy.v1" Alias="SAP__hierarchy"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="com.sap.gateway.srvd_a2x.api_fixedassetrevaluation.v0001" Alias="SAP__self">
+            <Annotation Term="SAP__core.SchemaVersion" String="1.0.0"/>
+            <EntityType Name="FixedAssetRevalItemAmount_Type">
+                <Key>
+                    <PropertyRef Name="FixedAssetPostingUUID"/>
+                    <PropertyRef Name="ReferenceDocumentItem"/>
+                    <PropertyRef Name="CompanyCode"/>
+                    <PropertyRef Name="Ledger"/>
+                    <PropertyRef Name="AssetDepreciationArea"/>
+                    <PropertyRef Name="SubLedgerAcctLineItemType"/>
+                </Key>
+                <Property Name="FixedAssetPostingUUID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="ReferenceDocumentItem" Type="Edm.String" Nullable="false" MaxLength="6"/>
+                <Property Name="CompanyCode" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="Ledger" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="AssetDepreciationArea" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="SubLedgerAcctLineItemType" Type="Edm.String" Nullable="false" MaxLength="5"/>
+                <Property Name="TransactionCurrency" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="AmountInTransactionCurrency" Type="Edm.Decimal" Nullable="false" Precision="23" Scale="variable"/>
+                <Property Name="CompanyCodeCurrency" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="AmountInCompanyCodeCurrency" Type="Edm.Decimal" Nullable="false" Precision="23" Scale="variable"/>
+                <Property Name="GlobalCurrency" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="AmountInGlobalCurrency" Type="Edm.Decimal" Nullable="false" Precision="23" Scale="variable"/>
+                <Property Name="FreeDefinedCurrency1" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="AmountInFreeDefinedCurrency1" Type="Edm.Decimal" Nullable="false" Precision="23" Scale="variable"/>
+                <Property Name="FreeDefinedCurrency2" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="AmountInFreeDefinedCurrency2" Type="Edm.Decimal" Nullable="false" Precision="23" Scale="variable"/>
+                <Property Name="FreeDefinedCurrency3" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="AmountInFreeDefinedCurrency3" Type="Edm.Decimal" Nullable="false" Precision="23" Scale="variable"/>
+                <Property Name="FreeDefinedCurrency4" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="AmountInFreeDefinedCurrency4" Type="Edm.Decimal" Nullable="false" Precision="23" Scale="variable"/>
+                <Property Name="FreeDefinedCurrency5" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="AmountInFreeDefinedCurrency5" Type="Edm.Decimal" Nullable="false" Precision="23" Scale="variable"/>
+                <Property Name="FreeDefinedCurrency6" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="AmountInFreeDefinedCurrency6" Type="Edm.Decimal" Nullable="false" Precision="23" Scale="variable"/>
+                <Property Name="FreeDefinedCurrency7" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="AmountInFreeDefinedCurrency7" Type="Edm.Decimal" Nullable="false" Precision="23" Scale="variable"/>
+                <Property Name="FreeDefinedCurrency8" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="AmountInFreeDefinedCurrency8" Type="Edm.Decimal" Nullable="false" Precision="23" Scale="variable"/>
+                <NavigationProperty Name="_FixedAssetPosting" Type="com.sap.gateway.srvd_a2x.api_fixedassetrevaluation.v0001.FixedAssetRevaluation_Type" Nullable="false">
+                    <ReferentialConstraint Property="FixedAssetPostingUUID" ReferencedProperty="FixedAssetPostingUUID"/>
+                    <ReferentialConstraint Property="ReferenceDocumentItem" ReferencedProperty="ReferenceDocumentItem"/>
+                </NavigationProperty>
+            </EntityType>
+            <EntityType Name="FixedAssetRevaluationLedger_Type">
+                <Key>
+                    <PropertyRef Name="FixedAssetPostingUUID"/>
+                    <PropertyRef Name="ReferenceDocumentItem"/>
+                    <PropertyRef Name="Ledger"/>
+                </Key>
+                <Property Name="FixedAssetPostingUUID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="ReferenceDocumentItem" Type="Edm.String" Nullable="false" MaxLength="6"/>
+                <Property Name="Ledger" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <NavigationProperty Name="_FixedAssetPosting" Type="com.sap.gateway.srvd_a2x.api_fixedassetrevaluation.v0001.FixedAssetRevaluation_Type" Nullable="false">
+                    <ReferentialConstraint Property="FixedAssetPostingUUID" ReferencedProperty="FixedAssetPostingUUID"/>
+                    <ReferentialConstraint Property="ReferenceDocumentItem" ReferencedProperty="ReferenceDocumentItem"/>
+                </NavigationProperty>
+                <NavigationProperty Name="_FixedAssetPostingValuation" Type="Collection(com.sap.gateway.srvd_a2x.api_fixedassetrevaluation.v0001.FixedAssetRevalValuation_Type)"/>
+            </EntityType>
+            <EntityType Name="FixedAssetRevalValuation_Type">
+                <Key>
+                    <PropertyRef Name="FixedAssetPostingUUID"/>
+                    <PropertyRef Name="ReferenceDocumentItem"/>
+                    <PropertyRef Name="Ledger"/>
+                    <PropertyRef Name="AssetDepreciationArea"/>
+                </Key>
+                <Property Name="FixedAssetPostingUUID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="ReferenceDocumentItem" Type="Edm.String" Nullable="false" MaxLength="6"/>
+                <Property Name="Ledger" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="AssetDepreciationArea" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <NavigationProperty Name="_FixedAssetPosting" Type="com.sap.gateway.srvd_a2x.api_fixedassetrevaluation.v0001.FixedAssetRevaluation_Type" Nullable="false">
+                    <ReferentialConstraint Property="FixedAssetPostingUUID" ReferencedProperty="FixedAssetPostingUUID"/>
+                    <ReferentialConstraint Property="ReferenceDocumentItem" ReferencedProperty="ReferenceDocumentItem"/>
+                </NavigationProperty>
+                <NavigationProperty Name="_FixedAssetPostingLedger" Type="com.sap.gateway.srvd_a2x.api_fixedassetrevaluation.v0001.FixedAssetRevaluationLedger_Type" Nullable="false"/>
+            </EntityType>
+            <EntityType Name="FixedAssetRevaluation_Type">
+                <Key>
+                    <PropertyRef Name="FixedAssetPostingUUID"/>
+                    <PropertyRef Name="ReferenceDocumentItem"/>
+                </Key>
+                <Property Name="FixedAssetPostingUUID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="ReferenceDocumentItem" Type="Edm.String" Nullable="false" MaxLength="6"/>
+                <Property Name="CompanyCode" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="MasterFixedAsset" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="FixedAsset" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="AssetClass" Type="Edm.String" Nullable="false" MaxLength="8"/>
+                <Property Name="DocumentDate" Type="Edm.Date"/>
+                <Property Name="PostingDate" Type="Edm.Date"/>
+                <Property Name="AssetValueDate" Type="Edm.Date"/>
+                <Property Name="BusinessTransactionType" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="DocumentReferenceID" Type="Edm.String" Nullable="false" MaxLength="16"/>
+                <Property Name="AccountingDocumentHeaderText" Type="Edm.String" Nullable="false" MaxLength="25"/>
+                <Property Name="DebitCreditCode" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="FixedAssetYearOfAcqnCode" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="FxdAstRevalAcqnAmtInFC" Type="Edm.Decimal" Nullable="false" Precision="23" Scale="variable"/>
+                <Property Name="FxdAstRevalCYrDeprAmtInFC" Type="Edm.Decimal" Nullable="false" Precision="23" Scale="variable"/>
+                <Property Name="FxdAstRevalPrYrDeprAmtInFC" Type="Edm.Decimal" Nullable="false" Precision="23" Scale="variable"/>
+                <Property Name="FxdAstRevalFuncnlCrcy" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="AccountingDocumentType" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="AssignmentReference" Type="Edm.String" Nullable="false" MaxLength="18"/>
+                <Property Name="DocumentItemText" Type="Edm.String" Nullable="false" MaxLength="50"/>
+                <Property Name="SAP__Messages" Type="Collection(com.sap.gateway.srvd_a2x.api_fixedassetrevaluation.v0001.SAP__Message)" Nullable="false"/>
+                <NavigationProperty Name="_FixedAssetPostingItemAmount" Type="Collection(com.sap.gateway.srvd_a2x.api_fixedassetrevaluation.v0001.FixedAssetRevalItemAmount_Type)"/>
+                <NavigationProperty Name="_FixedAssetPostingLedger" Type="Collection(com.sap.gateway.srvd_a2x.api_fixedassetrevaluation.v0001.FixedAssetRevaluationLedger_Type)"/>
+                <NavigationProperty Name="_FixedAssetPostingValuation" Type="Collection(com.sap.gateway.srvd_a2x.api_fixedassetrevaluation.v0001.FixedAssetRevalValuation_Type)"/>
+            </EntityType>
+            <ComplexType Name="D_FIXEDASSETPOSTREVALLEDGERP">
+                <Property Name="Ledger" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="_Valuation" Type="Collection(com.sap.gateway.srvd_a2x.api_fixedassetrevaluation.v0001.D_FIXEDASSETPOSTREVALVALNP)" Nullable="false"/>
+            </ComplexType>
+            <ComplexType Name="D_FIXEDASSETPOSTREVALVALNP">
+                <Property Name="AssetDepreciationArea" Type="Edm.String" Nullable="false" MaxLength="2"/>
+            </ComplexType>
+            <ComplexType Name="D_FIXEDASSETPOSTREVALITEMAMTP">
+                <Property Name="AssetDepreciationArea" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="SubLedgerAcctLineItemType" Type="Edm.String" Nullable="false" MaxLength="5"/>
+                <Property Name="TransactionCurrency" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="CompanyCodeCurrency" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="GlobalCurrency" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="FreeDefinedCurrency1" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="FreeDefinedCurrency2" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="FreeDefinedCurrency3" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="FreeDefinedCurrency4" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="FreeDefinedCurrency5" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="FreeDefinedCurrency6" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="FreeDefinedCurrency7" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="FreeDefinedCurrency8" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="AmountInTransactionCurrency" Type="Edm.Decimal" Nullable="false" Precision="23" Scale="variable"/>
+                <Property Name="AmountInCompanyCodeCurrency" Type="Edm.Decimal" Nullable="false" Precision="23" Scale="variable"/>
+                <Property Name="AmountInGlobalCurrency" Type="Edm.Decimal" Nullable="false" Precision="23" Scale="variable"/>
+                <Property Name="AmountInFreeDefinedCurrency1" Type="Edm.Decimal" Nullable="false" Precision="23" Scale="variable"/>
+                <Property Name="AmountInFreeDefinedCurrency2" Type="Edm.Decimal" Nullable="false" Precision="23" Scale="variable"/>
+                <Property Name="AmountInFreeDefinedCurrency3" Type="Edm.Decimal" Nullable="false" Precision="23" Scale="variable"/>
+                <Property Name="AmountInFreeDefinedCurrency4" Type="Edm.Decimal" Nullable="false" Precision="23" Scale="variable"/>
+                <Property Name="AmountInFreeDefinedCurrency5" Type="Edm.Decimal" Nullable="false" Precision="23" Scale="variable"/>
+                <Property Name="AmountInFreeDefinedCurrency6" Type="Edm.Decimal" Nullable="false" Precision="23" Scale="variable"/>
+                <Property Name="AmountInFreeDefinedCurrency7" Type="Edm.Decimal" Nullable="false" Precision="23" Scale="variable"/>
+                <Property Name="AmountInFreeDefinedCurrency8" Type="Edm.Decimal" Nullable="false" Precision="23" Scale="variable"/>
+            </ComplexType>
+            <ComplexType Name="SAP__Message">
+                <Property Name="code" Type="Edm.String" Nullable="false"/>
+                <Property Name="message" Type="Edm.String" Nullable="false"/>
+                <Property Name="target" Type="Edm.String"/>
+                <Property Name="additionalTargets" Type="Collection(Edm.String)" Nullable="false"/>
+                <Property Name="transition" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="numericSeverity" Type="Edm.Byte" Nullable="false"/>
+                <Property Name="longtextUrl" Type="Edm.String"/>
+            </ComplexType>
+            <Action Name="Post" EntitySetPath="_it" IsBound="true">
+                <Parameter Name="_it" Type="Collection(com.sap.gateway.srvd_a2x.api_fixedassetrevaluation.v0001.FixedAssetRevaluation_Type)" Nullable="false"/>
+                <Parameter Name="ReferenceDocumentItem" Type="Edm.String" Nullable="false" MaxLength="6"/>
+                <Parameter Name="BusinessTransactionType" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Parameter Name="CompanyCode" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Parameter Name="MasterFixedAsset" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Parameter Name="FixedAsset" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Parameter Name="DocumentDate" Type="Edm.Date" Nullable="true"/>
+                <Parameter Name="PostingDate" Type="Edm.Date" Nullable="true"/>
+                <Parameter Name="AssetValueDate" Type="Edm.Date" Nullable="true"/>
+                <Parameter Name="DebitCreditCode" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Parameter Name="FixedAssetYearOfAcqnCode" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Parameter Name="DocumentReferenceID" Type="Edm.String" Nullable="false" MaxLength="16"/>
+                <Parameter Name="AccountingDocumentHeaderText" Type="Edm.String" Nullable="false" MaxLength="25"/>
+                <Parameter Name="FxdAstRevalAcqnAmtInFC" Type="Edm.Decimal" Nullable="false" Precision="23" Scale="variable"/>
+                <Parameter Name="FxdAstRevalCYrDeprAmtInFC" Type="Edm.Decimal" Nullable="false" Precision="23" Scale="variable"/>
+                <Parameter Name="FxdAstRevalPrYrDeprAmtInFC" Type="Edm.Decimal" Nullable="false" Precision="23" Scale="variable"/>
+                <Parameter Name="FxdAstRevalFuncnlCrcy" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Parameter Name="AccountingDocumentType" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Parameter Name="AssignmentReference" Type="Edm.String" Nullable="false" MaxLength="18"/>
+                <Parameter Name="DocumentItemText" Type="Edm.String" Nullable="false" MaxLength="50"/>
+                <Parameter Name="_ItemAmount" Type="Collection(com.sap.gateway.srvd_a2x.api_fixedassetrevaluation.v0001.D_FIXEDASSETPOSTREVALITEMAMTP)" Nullable="false"/>
+                <Parameter Name="_Ledger" Type="Collection(com.sap.gateway.srvd_a2x.api_fixedassetrevaluation.v0001.D_FIXEDASSETPOSTREVALLEDGERP)" Nullable="false"/>
+                <ReturnType Type="com.sap.gateway.srvd_a2x.api_fixedassetrevaluation.v0001.FixedAssetRevaluation_Type" Nullable="false"/>
+            </Action>
+            <EntityContainer Name="Container">
+                <EntitySet Name="FixedAssetRevalItemAmount" EntityType="com.sap.gateway.srvd_a2x.api_fixedassetrevaluation.v0001.FixedAssetRevalItemAmount_Type">
+                    <NavigationPropertyBinding Path="_FixedAssetPosting" Target="FixedAssetRevaluation"/>
+                </EntitySet>
+                <EntitySet Name="FixedAssetRevaluation" EntityType="com.sap.gateway.srvd_a2x.api_fixedassetrevaluation.v0001.FixedAssetRevaluation_Type">
+                    <NavigationPropertyBinding Path="_FixedAssetPostingItemAmount" Target="FixedAssetRevalItemAmount"/>
+                    <NavigationPropertyBinding Path="_FixedAssetPostingLedger" Target="FixedAssetRevaluationLedger"/>
+                    <NavigationPropertyBinding Path="_FixedAssetPostingValuation" Target="FixedAssetRevalValuation"/>
+                </EntitySet>
+                <EntitySet Name="FixedAssetRevaluationLedger" EntityType="com.sap.gateway.srvd_a2x.api_fixedassetrevaluation.v0001.FixedAssetRevaluationLedger_Type">
+                    <NavigationPropertyBinding Path="_FixedAssetPosting" Target="FixedAssetRevaluation"/>
+                    <NavigationPropertyBinding Path="_FixedAssetPostingValuation" Target="FixedAssetRevalValuation"/>
+                </EntitySet>
+                <EntitySet Name="FixedAssetRevalValuation" EntityType="com.sap.gateway.srvd_a2x.api_fixedassetrevaluation.v0001.FixedAssetRevalValuation_Type">
+                    <NavigationPropertyBinding Path="_FixedAssetPosting" Target="FixedAssetRevaluation"/>
+                    <NavigationPropertyBinding Path="_FixedAssetPostingLedger" Target="FixedAssetRevaluationLedger"/>
+                </EntitySet>
+            </EntityContainer>
+            <Annotations Target="SAP__self.D_FIXEDASSETPOSTREVALLEDGERP/Ledger">
+                <Annotation Term="SAP__common.FieldControl" EnumMember="SAP__common.FieldControlType/Mandatory"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Ledger"/>
+                <Annotation Term="SAP__common.Heading" String="Ld"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Ledger in General Ledger Accounting"/>
+            </Annotations>
+            <Annotations Target="SAP__self.D_FIXEDASSETPOSTREVALVALNP/AssetDepreciationArea">
+                <Annotation Term="SAP__common.FieldControl" EnumMember="SAP__common.FieldControlType/Mandatory"/>
+                <Annotation Term="SAP__common.Label" String="Depreciation area"/>
+                <Annotation Term="SAP__common.Heading" String="Ar."/>
+                <Annotation Term="SAP__common.QuickInfo" String="Real depreciation area"/>
+            </Annotations>
+            <Annotations Target="SAP__self.D_FIXEDASSETPOSTREVALITEMAMTP/AssetDepreciationArea">
+                <Annotation Term="SAP__common.FieldControl" EnumMember="SAP__common.FieldControlType/Mandatory"/>
+                <Annotation Term="SAP__common.Label" String="Depreciation area"/>
+                <Annotation Term="SAP__common.Heading" String="Ar."/>
+                <Annotation Term="SAP__common.QuickInfo" String="Real depreciation area"/>
+            </Annotations>
+            <Annotations Target="SAP__self.D_FIXEDASSETPOSTREVALITEMAMTP/SubLedgerAcctLineItemType">
+                <Annotation Term="SAP__common.FieldControl" EnumMember="SAP__common.FieldControlType/Mandatory"/>
+                <Annotation Term="SAP__common.Label" String="Line Item Type"/>
+                <Annotation Term="SAP__common.Heading" String="Subledger-Specific Line Item Type"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Subledger-Specific Line Item Type"/>
+            </Annotations>
+            <Annotations Target="SAP__self.D_FIXEDASSETPOSTREVALITEMAMTP/TransactionCurrency">
+                <Annotation Term="SAP__common.IsCurrency"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Transaction Currency"/>
+                <Annotation Term="SAP__common.Heading" String="TrCrcy"/>
+            </Annotations>
+            <Annotations Target="SAP__self.D_FIXEDASSETPOSTREVALITEMAMTP/CompanyCodeCurrency">
+                <Annotation Term="SAP__common.IsCurrency"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="CompanyCode Currency"/>
+                <Annotation Term="SAP__common.Heading" String="CCCrcy"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Company Code Currency"/>
+            </Annotations>
+            <Annotations Target="SAP__self.D_FIXEDASSETPOSTREVALITEMAMTP/GlobalCurrency">
+                <Annotation Term="SAP__common.IsCurrency"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Global Currency"/>
+            </Annotations>
+            <Annotations Target="SAP__self.D_FIXEDASSETPOSTREVALITEMAMTP/FreeDefinedCurrency1">
+                <Annotation Term="SAP__common.IsCurrency"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Free Defined Crcy 1"/>
+                <Annotation Term="SAP__common.Heading" String="Freely Defined Currency 1"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Freely Defined Currency 1"/>
+            </Annotations>
+            <Annotations Target="SAP__self.D_FIXEDASSETPOSTREVALITEMAMTP/FreeDefinedCurrency2">
+                <Annotation Term="SAP__common.IsCurrency"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Free Defined Crcy 2"/>
+                <Annotation Term="SAP__common.Heading" String="Freely Defined Currency 2"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Freely Defined Currency 2"/>
+            </Annotations>
+            <Annotations Target="SAP__self.D_FIXEDASSETPOSTREVALITEMAMTP/FreeDefinedCurrency3">
+                <Annotation Term="SAP__common.IsCurrency"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Free Defined Crcy 3"/>
+                <Annotation Term="SAP__common.Heading" String="Freely Defined Currency 3"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Freely Defined Currency 3"/>
+            </Annotations>
+            <Annotations Target="SAP__self.D_FIXEDASSETPOSTREVALITEMAMTP/FreeDefinedCurrency4">
+                <Annotation Term="SAP__common.IsCurrency"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Free Defined Crcy 4"/>
+                <Annotation Term="SAP__common.Heading" String="Freely Defined Currency 4"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Freely Defined Currency 4"/>
+            </Annotations>
+            <Annotations Target="SAP__self.D_FIXEDASSETPOSTREVALITEMAMTP/FreeDefinedCurrency5">
+                <Annotation Term="SAP__common.IsCurrency"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Free Defined Crcy 5"/>
+                <Annotation Term="SAP__common.Heading" String="Freely Defined Currency 5"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Freely Defined Currency 5"/>
+            </Annotations>
+            <Annotations Target="SAP__self.D_FIXEDASSETPOSTREVALITEMAMTP/FreeDefinedCurrency6">
+                <Annotation Term="SAP__common.IsCurrency"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Free Defined Crcy 6"/>
+                <Annotation Term="SAP__common.Heading" String="Freely Defined Currency 6"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Freely Defined Currency 6"/>
+            </Annotations>
+            <Annotations Target="SAP__self.D_FIXEDASSETPOSTREVALITEMAMTP/FreeDefinedCurrency7">
+                <Annotation Term="SAP__common.IsCurrency"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Free Defined Crcy 7"/>
+                <Annotation Term="SAP__common.Heading" String="Freely Defined Currency 7"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Freely Defined Currency 7"/>
+            </Annotations>
+            <Annotations Target="SAP__self.D_FIXEDASSETPOSTREVALITEMAMTP/FreeDefinedCurrency8">
+                <Annotation Term="SAP__common.IsCurrency"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Free Defined Crcy 8"/>
+                <Annotation Term="SAP__common.Heading" String="Freely Defined Currency 8"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Freely Defined Currency 8"/>
+            </Annotations>
+            <Annotations Target="SAP__self.D_FIXEDASSETPOSTREVALITEMAMTP/AmountInTransactionCurrency">
+                <Annotation Term="SAP__measures.ISOCurrency" Path="TransactionCurrency"/>
+                <Annotation Term="SAP__common.Label" String="Amnt in Trans. Crcy"/>
+                <Annotation Term="SAP__common.Heading" String="Amnt in TransactionCrcy"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Amount in Transaction Currency"/>
+            </Annotations>
+            <Annotations Target="SAP__self.D_FIXEDASSETPOSTREVALITEMAMTP/AmountInCompanyCodeCurrency">
+                <Annotation Term="SAP__measures.ISOCurrency" Path="CompanyCodeCurrency"/>
+                <Annotation Term="SAP__common.Label" String="Amnt in Comp Cd Crcy"/>
+                <Annotation Term="SAP__common.Heading" String="Amount in Comp Cd Crcy"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Amount in Company Code Currency"/>
+            </Annotations>
+            <Annotations Target="SAP__self.D_FIXEDASSETPOSTREVALITEMAMTP/AmountInGlobalCurrency">
+                <Annotation Term="SAP__measures.ISOCurrency" Path="GlobalCurrency"/>
+                <Annotation Term="SAP__common.Label" String="Amnt in Global Crcy"/>
+                <Annotation Term="SAP__common.Heading" String="Amount in Global Crcy"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Amount in Global Currency"/>
+            </Annotations>
+            <Annotations Target="SAP__self.D_FIXEDASSETPOSTREVALITEMAMTP/AmountInFreeDefinedCurrency1">
+                <Annotation Term="SAP__measures.ISOCurrency" Path="FreeDefinedCurrency1"/>
+                <Annotation Term="SAP__common.Label" String="Amount in Currency 1"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Amount in Freely Defined Currency 1"/>
+            </Annotations>
+            <Annotations Target="SAP__self.D_FIXEDASSETPOSTREVALITEMAMTP/AmountInFreeDefinedCurrency2">
+                <Annotation Term="SAP__measures.ISOCurrency" Path="FreeDefinedCurrency2"/>
+                <Annotation Term="SAP__common.Label" String="Amount in Currency 2"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Amount in Freely Defined Currency 2"/>
+            </Annotations>
+            <Annotations Target="SAP__self.D_FIXEDASSETPOSTREVALITEMAMTP/AmountInFreeDefinedCurrency3">
+                <Annotation Term="SAP__measures.ISOCurrency" Path="FreeDefinedCurrency3"/>
+                <Annotation Term="SAP__common.Label" String="Amount in Currency 3"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Amount in Freely Defined Currency 3"/>
+            </Annotations>
+            <Annotations Target="SAP__self.D_FIXEDASSETPOSTREVALITEMAMTP/AmountInFreeDefinedCurrency4">
+                <Annotation Term="SAP__measures.ISOCurrency" Path="FreeDefinedCurrency4"/>
+                <Annotation Term="SAP__common.Label" String="Amount in Currency 4"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Amount in Freely Defined Currency 4"/>
+            </Annotations>
+            <Annotations Target="SAP__self.D_FIXEDASSETPOSTREVALITEMAMTP/AmountInFreeDefinedCurrency5">
+                <Annotation Term="SAP__measures.ISOCurrency" Path="FreeDefinedCurrency5"/>
+                <Annotation Term="SAP__common.Label" String="Amount in Currency 5"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Amount in Freely Defined Currency 5"/>
+            </Annotations>
+            <Annotations Target="SAP__self.D_FIXEDASSETPOSTREVALITEMAMTP/AmountInFreeDefinedCurrency6">
+                <Annotation Term="SAP__measures.ISOCurrency" Path="FreeDefinedCurrency6"/>
+                <Annotation Term="SAP__common.Label" String="Amount in Currency 6"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Amount in Freely Defined Currency 6"/>
+            </Annotations>
+            <Annotations Target="SAP__self.D_FIXEDASSETPOSTREVALITEMAMTP/AmountInFreeDefinedCurrency7">
+                <Annotation Term="SAP__measures.ISOCurrency" Path="FreeDefinedCurrency7"/>
+                <Annotation Term="SAP__common.Label" String="Amount in Currency 7"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Amount in Freely Defined Currency 7"/>
+            </Annotations>
+            <Annotations Target="SAP__self.D_FIXEDASSETPOSTREVALITEMAMTP/AmountInFreeDefinedCurrency8">
+                <Annotation Term="SAP__measures.ISOCurrency" Path="FreeDefinedCurrency8"/>
+                <Annotation Term="SAP__common.Label" String="Amount in Currency 8"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Amount in Freely Defined Currency 8"/>
+            </Annotations>
+            <Annotations Target="SAP__self.FixedAssetRevalItemAmount_Type/ReferenceDocumentItem">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="Ref. Doc. Line Item"/>
+                <Annotation Term="SAP__common.Heading" String="Ref.It"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Reference Document Line Item"/>
+            </Annotations>
+            <Annotations Target="SAP__self.FixedAssetRevalItemAmount_Type/CompanyCode">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Company Code"/>
+                <Annotation Term="SAP__common.Heading" String="CoCd"/>
+            </Annotations>
+            <Annotations Target="SAP__self.FixedAssetRevalItemAmount_Type/Ledger">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Ledger"/>
+                <Annotation Term="SAP__common.Heading" String="Ld"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Ledger in General Ledger Accounting"/>
+            </Annotations>
+            <Annotations Target="SAP__self.FixedAssetRevalItemAmount_Type/AssetDepreciationArea">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="Depreciation Area"/>
+                <Annotation Term="SAP__common.Heading" String="Ar."/>
+                <Annotation Term="SAP__common.QuickInfo" String="Depreciation Area Real or Derived"/>
+            </Annotations>
+            <Annotations Target="SAP__self.FixedAssetRevalItemAmount_Type/SubLedgerAcctLineItemType">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="Line Item Type"/>
+                <Annotation Term="SAP__common.Heading" String="Subledger-Specific Line Item Type"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Subledger-Specific Line Item Type"/>
+            </Annotations>
+            <Annotations Target="SAP__self.FixedAssetRevalItemAmount_Type/TransactionCurrency">
+                <Annotation Term="SAP__common.IsCurrency"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Transaction Currency"/>
+                <Annotation Term="SAP__common.Heading" String="TrCrcy"/>
+            </Annotations>
+            <Annotations Target="SAP__self.FixedAssetRevalItemAmount_Type/AmountInTransactionCurrency">
+                <Annotation Term="SAP__measures.ISOCurrency" Path="TransactionCurrency"/>
+                <Annotation Term="SAP__common.Label" String="Amnt in Trans. Crcy"/>
+                <Annotation Term="SAP__common.Heading" String="Amnt in TransactionCrcy"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Amount in Transaction Currency"/>
+            </Annotations>
+            <Annotations Target="SAP__self.FixedAssetRevalItemAmount_Type/CompanyCodeCurrency">
+                <Annotation Term="SAP__common.IsCurrency"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="CompanyCode Currency"/>
+                <Annotation Term="SAP__common.Heading" String="CCCrcy"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Company Code Currency"/>
+            </Annotations>
+            <Annotations Target="SAP__self.FixedAssetRevalItemAmount_Type/AmountInCompanyCodeCurrency">
+                <Annotation Term="SAP__measures.ISOCurrency" Path="CompanyCodeCurrency"/>
+                <Annotation Term="SAP__common.Label" String="Amnt in Comp Cd Crcy"/>
+                <Annotation Term="SAP__common.Heading" String="Amount in Comp Cd Crcy"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Amount in Company Code Currency"/>
+            </Annotations>
+            <Annotations Target="SAP__self.FixedAssetRevalItemAmount_Type/GlobalCurrency">
+                <Annotation Term="SAP__common.IsCurrency"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Global Currency"/>
+            </Annotations>
+            <Annotations Target="SAP__self.FixedAssetRevalItemAmount_Type/AmountInGlobalCurrency">
+                <Annotation Term="SAP__measures.ISOCurrency" Path="GlobalCurrency"/>
+                <Annotation Term="SAP__common.Label" String="Amnt in Global Crcy"/>
+                <Annotation Term="SAP__common.Heading" String="Amount in Global Crcy"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Amount in Global Currency"/>
+            </Annotations>
+            <Annotations Target="SAP__self.FixedAssetRevalItemAmount_Type/FreeDefinedCurrency1">
+                <Annotation Term="SAP__common.IsCurrency"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Free Defined Crcy 1"/>
+                <Annotation Term="SAP__common.Heading" String="Freely Defined Currency 1"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Freely Defined Currency 1"/>
+            </Annotations>
+            <Annotations Target="SAP__self.FixedAssetRevalItemAmount_Type/AmountInFreeDefinedCurrency1">
+                <Annotation Term="SAP__measures.ISOCurrency" Path="FreeDefinedCurrency1"/>
+                <Annotation Term="SAP__common.Label" String="Amount in Currency 1"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Amount in Freely Defined Currency 1"/>
+            </Annotations>
+            <Annotations Target="SAP__self.FixedAssetRevalItemAmount_Type/FreeDefinedCurrency2">
+                <Annotation Term="SAP__common.IsCurrency"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Free Defined Crcy 2"/>
+                <Annotation Term="SAP__common.Heading" String="Freely Defined Currency 2"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Freely Defined Currency 2"/>
+            </Annotations>
+            <Annotations Target="SAP__self.FixedAssetRevalItemAmount_Type/AmountInFreeDefinedCurrency2">
+                <Annotation Term="SAP__measures.ISOCurrency" Path="FreeDefinedCurrency2"/>
+                <Annotation Term="SAP__common.Label" String="Amount in Currency 2"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Amount in Freely Defined Currency 2"/>
+            </Annotations>
+            <Annotations Target="SAP__self.FixedAssetRevalItemAmount_Type/FreeDefinedCurrency3">
+                <Annotation Term="SAP__common.IsCurrency"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Freely Defined Currency 3"/>
+            </Annotations>
+            <Annotations Target="SAP__self.FixedAssetRevalItemAmount_Type/AmountInFreeDefinedCurrency3">
+                <Annotation Term="SAP__measures.ISOCurrency" Path="FreeDefinedCurrency3"/>
+                <Annotation Term="SAP__common.Label" String="Amount in Currency 3"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Amount in Freely Defined Currency 3"/>
+            </Annotations>
+            <Annotations Target="SAP__self.FixedAssetRevalItemAmount_Type/FreeDefinedCurrency4">
+                <Annotation Term="SAP__common.IsCurrency"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Freely Defined Currency 4"/>
+            </Annotations>
+            <Annotations Target="SAP__self.FixedAssetRevalItemAmount_Type/AmountInFreeDefinedCurrency4">
+                <Annotation Term="SAP__measures.ISOCurrency" Path="FreeDefinedCurrency4"/>
+                <Annotation Term="SAP__common.Label" String="Amount in Currency 4"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Amount in Freely Defined Currency 4"/>
+            </Annotations>
+            <Annotations Target="SAP__self.FixedAssetRevalItemAmount_Type/FreeDefinedCurrency5">
+                <Annotation Term="SAP__common.IsCurrency"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Freely Defined Currency 5"/>
+            </Annotations>
+            <Annotations Target="SAP__self.FixedAssetRevalItemAmount_Type/AmountInFreeDefinedCurrency5">
+                <Annotation Term="SAP__measures.ISOCurrency" Path="FreeDefinedCurrency5"/>
+                <Annotation Term="SAP__common.Label" String="Amount in Currency 5"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Amount in Freely Defined Currency 5"/>
+            </Annotations>
+            <Annotations Target="SAP__self.FixedAssetRevalItemAmount_Type/FreeDefinedCurrency6">
+                <Annotation Term="SAP__common.IsCurrency"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Freely Defined Currency 6"/>
+            </Annotations>
+            <Annotations Target="SAP__self.FixedAssetRevalItemAmount_Type/AmountInFreeDefinedCurrency6">
+                <Annotation Term="SAP__measures.ISOCurrency" Path="FreeDefinedCurrency6"/>
+                <Annotation Term="SAP__common.Label" String="Amount in Currency 6"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Amount in Freely Defined Currency 6"/>
+            </Annotations>
+            <Annotations Target="SAP__self.FixedAssetRevalItemAmount_Type/FreeDefinedCurrency7">
+                <Annotation Term="SAP__common.IsCurrency"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Free Defined Crcy 7"/>
+                <Annotation Term="SAP__common.Heading" String="Freely Defined Currency 7"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Freely Defined Currency 7"/>
+            </Annotations>
+            <Annotations Target="SAP__self.FixedAssetRevalItemAmount_Type/AmountInFreeDefinedCurrency7">
+                <Annotation Term="SAP__measures.ISOCurrency" Path="FreeDefinedCurrency7"/>
+                <Annotation Term="SAP__common.Label" String="Amount in Currency 7"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Amount in Freely Defined Currency 7"/>
+            </Annotations>
+            <Annotations Target="SAP__self.FixedAssetRevalItemAmount_Type/FreeDefinedCurrency8">
+                <Annotation Term="SAP__common.IsCurrency"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Freely Defined Currency 8"/>
+            </Annotations>
+            <Annotations Target="SAP__self.FixedAssetRevalItemAmount_Type/AmountInFreeDefinedCurrency8">
+                <Annotation Term="SAP__measures.ISOCurrency" Path="FreeDefinedCurrency8"/>
+                <Annotation Term="SAP__common.Label" String="Amount in Currency 8"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Amount in Freely Defined Currency 8"/>
+            </Annotations>
+            <Annotations Target="SAP__self.FixedAssetRevalItemAmount_Type">
+                <Annotation Term="SAP__common.Label" String="Item Amt for Fixed Asset Reval Posting"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/FixedAssetRevalItemAmount">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="NonUpdatableNavigationProperties">
+                            <Collection>
+                                <PropertyPath>_FixedAssetPosting</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__core.OptimisticConcurrency">
+                    <Collection/>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="AmountInTransactionCurrency"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="AmountInCompanyCodeCurrency"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="AmountInGlobalCurrency"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="AmountInFreeDefinedCurrency1"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="AmountInFreeDefinedCurrency2"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="AmountInFreeDefinedCurrency3"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="AmountInFreeDefinedCurrency4"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="AmountInFreeDefinedCurrency5"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="AmountInFreeDefinedCurrency6"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="AmountInFreeDefinedCurrency7"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="AmountInFreeDefinedCurrency8"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.Container">
+                <Annotation Term="SAP__CodeList.CurrencyCodes">
+                    <Record>
+                        <PropertyValue Property="Url" String="../../../../default/iwbep/common/0001/$metadata"/>
+                        <PropertyValue Property="CollectionPath" String="Currencies"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__aggregation.ApplySupported">
+                    <Record>
+                        <PropertyValue Property="Transformations">
+                            <Collection>
+                                <String>aggregate</String>
+                                <String>groupby</String>
+                                <String>filter</String>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Rollup" EnumMember="SAP__aggregation.RollupType/None"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+                <Annotation Term="SAP__capabilities.FilterFunctions">
+                    <Collection>
+                        <String>eq</String>
+                        <String>ne</String>
+                        <String>gt</String>
+                        <String>ge</String>
+                        <String>lt</String>
+                        <String>le</String>
+                        <String>and</String>
+                        <String>or</String>
+                        <String>contains</String>
+                        <String>startswith</String>
+                        <String>endswith</String>
+                        <String>any</String>
+                        <String>all</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SupportedFormats">
+                    <Collection>
+                        <String>application/json</String>
+                        <String>application/pdf</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__PDF.Features">
+                    <Record>
+                        <PropertyValue Property="DocumentDescriptionReference" String="../../../../default/iwbep/common/0001/$metadata"/>
+                        <PropertyValue Property="DocumentDescriptionCollection" String="MyDocumentDescriptions"/>
+                        <PropertyValue Property="ArchiveFormat" Bool="true"/>
+                        <PropertyValue Property="Border" Bool="true"/>
+                        <PropertyValue Property="CoverPage" Bool="true"/>
+                        <PropertyValue Property="FitToPage" Bool="true"/>
+                        <PropertyValue Property="FontName" Bool="true"/>
+                        <PropertyValue Property="FontSize" Bool="true"/>
+                        <PropertyValue Property="Margin" Bool="true"/>
+                        <PropertyValue Property="Padding" Bool="true"/>
+                        <PropertyValue Property="Signature" Bool="true"/>
+                        <PropertyValue Property="HeaderFooter" Bool="true"/>
+                        <PropertyValue Property="ResultSizeDefault" Int="20000"/>
+                        <PropertyValue Property="ResultSizeMaximum" Int="20000"/>
+                        <PropertyValue Property="IANATimezoneFormat" Bool="true"/>
+                        <PropertyValue Property="Treeview" Bool="true"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.KeyAsSegmentSupported"/>
+                <Annotation Term="SAP__capabilities.AsynchronousRequestsSupported"/>
+            </Annotations>
+            <Annotations Target="SAP__self.FixedAssetRevaluationLedger_Type/ReferenceDocumentItem">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="Ref. Doc. Line Item"/>
+                <Annotation Term="SAP__common.Heading" String="Ref.It"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Reference Document Line Item"/>
+            </Annotations>
+            <Annotations Target="SAP__self.FixedAssetRevaluationLedger_Type/Ledger">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Ledger"/>
+                <Annotation Term="SAP__common.Heading" String="Ld"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Ledger in General Ledger Accounting"/>
+            </Annotations>
+            <Annotations Target="SAP__self.FixedAssetRevaluationLedger_Type">
+                <Annotation Term="SAP__common.Label" String="Ledger for Fixed Asset Reval Posting"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/FixedAssetRevaluationLedger">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="NonUpdatableNavigationProperties">
+                            <Collection>
+                                <PropertyPath>_FixedAssetPosting</PropertyPath>
+                                <PropertyPath>_FixedAssetPostingValuation</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__core.OptimisticConcurrency">
+                    <Collection/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.FixedAssetRevalValuation_Type/ReferenceDocumentItem">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="Ref. Doc. Line Item"/>
+                <Annotation Term="SAP__common.Heading" String="Ref.It"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Reference Document Line Item"/>
+            </Annotations>
+            <Annotations Target="SAP__self.FixedAssetRevalValuation_Type/Ledger">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Ledger"/>
+                <Annotation Term="SAP__common.Heading" String="Ld"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Ledger in General Ledger Accounting"/>
+            </Annotations>
+            <Annotations Target="SAP__self.FixedAssetRevalValuation_Type/AssetDepreciationArea">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="Depreciation area"/>
+                <Annotation Term="SAP__common.Heading" String="Ar."/>
+                <Annotation Term="SAP__common.QuickInfo" String="Real depreciation area"/>
+            </Annotations>
+            <Annotations Target="SAP__self.FixedAssetRevalValuation_Type">
+                <Annotation Term="SAP__common.Label" String="Valuation for Fixed Asset Reval Posting"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/FixedAssetRevalValuation">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="NonUpdatableNavigationProperties">
+                            <Collection>
+                                <PropertyPath>_FixedAssetPosting</PropertyPath>
+                                <PropertyPath>_FixedAssetPostingLedger</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__core.OptimisticConcurrency">
+                    <Collection/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.FixedAssetRevaluation_Type/FixedAssetPostingUUID">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Label" String="Posting UUID"/>
+                <Annotation Term="SAP__common.Heading" String="Fixed Asset Posting UUID"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Fixed Asset Posting: UUID"/>
+            </Annotations>
+            <Annotations Target="SAP__self.FixedAssetRevaluation_Type/ReferenceDocumentItem">
+                <Annotation Term="SAP__core.Immutable"/>
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="Ref. Doc. Line Item"/>
+                <Annotation Term="SAP__common.Heading" String="Ref.It"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Reference Document Line Item"/>
+            </Annotations>
+            <Annotations Target="SAP__self.FixedAssetRevaluation_Type/CompanyCode">
+                <Annotation Term="SAP__common.FieldControl" EnumMember="SAP__common.FieldControlType/Mandatory"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Company Code"/>
+                <Annotation Term="SAP__common.Heading" String="CoCd"/>
+            </Annotations>
+            <Annotations Target="SAP__self.FixedAssetRevaluation_Type/MasterFixedAsset">
+                <Annotation Term="SAP__common.FieldControl" EnumMember="SAP__common.FieldControlType/Mandatory"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Asset"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Main Asset Number"/>
+            </Annotations>
+            <Annotations Target="SAP__self.FixedAssetRevaluation_Type/FixedAsset">
+                <Annotation Term="SAP__common.FieldControl" EnumMember="SAP__common.FieldControlType/Mandatory"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Subnumber"/>
+                <Annotation Term="SAP__common.Heading" String="SNo."/>
+                <Annotation Term="SAP__common.QuickInfo" String="Asset Subnumber"/>
+            </Annotations>
+            <Annotations Target="SAP__self.FixedAssetRevaluation_Type/AssetClass">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Asset Class"/>
+                <Annotation Term="SAP__common.Heading" String="Class"/>
+            </Annotations>
+            <Annotations Target="SAP__self.FixedAssetRevaluation_Type/DocumentDate">
+                <Annotation Term="SAP__common.FieldControl" EnumMember="SAP__common.FieldControlType/Mandatory"/>
+                <Annotation Term="SAP__common.Label" String="Document Date"/>
+                <Annotation Term="SAP__common.Heading" String="Doc. Date"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Document Date in Document"/>
+            </Annotations>
+            <Annotations Target="SAP__self.FixedAssetRevaluation_Type/PostingDate">
+                <Annotation Term="SAP__common.FieldControl" EnumMember="SAP__common.FieldControlType/Mandatory"/>
+                <Annotation Term="SAP__common.Label" String="Posting Date"/>
+                <Annotation Term="SAP__common.Heading" String="Pstng Date"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Posting Date in the Document"/>
+            </Annotations>
+            <Annotations Target="SAP__self.FixedAssetRevaluation_Type/BusinessTransactionType">
+                <Annotation Term="SAP__common.FieldControl" EnumMember="SAP__common.FieldControlType/Mandatory"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Bus. Trans. Type"/>
+                <Annotation Term="SAP__common.Heading" String="BusTranTyp"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Business Transaction Type"/>
+            </Annotations>
+            <Annotations Target="SAP__self.FixedAssetRevaluation_Type/DocumentReferenceID">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Reference"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Reference Document Number"/>
+            </Annotations>
+            <Annotations Target="SAP__self.FixedAssetRevaluation_Type/DebitCreditCode">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Debit/Credit Code"/>
+            </Annotations>
+            <Annotations Target="SAP__self.FixedAssetRevaluation_Type/FixedAssetYearOfAcqnCode">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="UI Control of Transaction Amounts (Current/Previous)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.FixedAssetRevaluation_Type/FxdAstRevalAcqnAmtInFC">
+                <Annotation Term="SAP__measures.ISOCurrency" Path="FxdAstRevalFuncnlCrcy"/>
+                <Annotation Term="SAP__common.Label" String="Revaluation Amount for APC"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Revaluation APC Amount"/>
+            </Annotations>
+            <Annotations Target="SAP__self.FixedAssetRevaluation_Type/FxdAstRevalCYrDeprAmtInFC">
+                <Annotation Term="SAP__measures.ISOCurrency" Path="FxdAstRevalFuncnlCrcy"/>
+                <Annotation Term="SAP__common.Label" String="Revaluation of Current Year Depreciation"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Revaluation Amount of Current Year Depreciation"/>
+            </Annotations>
+            <Annotations Target="SAP__self.FixedAssetRevaluation_Type/FxdAstRevalPrYrDeprAmtInFC">
+                <Annotation Term="SAP__measures.ISOCurrency" Path="FxdAstRevalFuncnlCrcy"/>
+                <Annotation Term="SAP__common.Label" String="Revaluation of Prior Year Depreciation"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Revaluation Amount of Previous Year Depreciation"/>
+            </Annotations>
+            <Annotations Target="SAP__self.FixedAssetRevaluation_Type/FxdAstRevalFuncnlCrcy">
+                <Annotation Term="SAP__common.IsCurrency"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Currency"/>
+                <Annotation Term="SAP__common.Heading" String="Crcy"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Currency Key"/>
+            </Annotations>
+            <Annotations Target="SAP__self.FixedAssetRevaluation_Type/AccountingDocumentType">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Document Type"/>
+                <Annotation Term="SAP__common.Heading" String="Doc. Type"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Post(Collection(SAP__self.FixedAssetRevaluation_Type))/ReferenceDocumentItem">
+                <Annotation Term="SAP__common.FieldControl" EnumMember="SAP__common.FieldControlType/Mandatory"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Ref. Doc. Line Item"/>
+                <Annotation Term="SAP__common.Heading" String="Ref.It"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Reference Document Line Item"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Post(Collection(SAP__self.FixedAssetRevaluation_Type))/BusinessTransactionType">
+                <Annotation Term="SAP__common.FieldControl" EnumMember="SAP__common.FieldControlType/Mandatory"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Bus. Trans. Type"/>
+                <Annotation Term="SAP__common.Heading" String="BusTranTyp"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Business Transaction Type"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Post(Collection(SAP__self.FixedAssetRevaluation_Type))/CompanyCode">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__core.OptionalParameter"/>
+                <Annotation Term="SAP__common.Label" String="Company Code"/>
+                <Annotation Term="SAP__common.Heading" String="CoCd"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Post(Collection(SAP__self.FixedAssetRevaluation_Type))/MasterFixedAsset">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__core.OptionalParameter"/>
+                <Annotation Term="SAP__common.Label" String="Asset"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Main Asset Number"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Post(Collection(SAP__self.FixedAssetRevaluation_Type))/FixedAsset">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__core.OptionalParameter"/>
+                <Annotation Term="SAP__common.Label" String="Subnumber"/>
+                <Annotation Term="SAP__common.Heading" String="SNo."/>
+                <Annotation Term="SAP__common.QuickInfo" String="Asset Subnumber"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Post(Collection(SAP__self.FixedAssetRevaluation_Type))/DocumentDate">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__core.OptionalParameter"/>
+                <Annotation Term="SAP__common.Label" String="Document Date"/>
+                <Annotation Term="SAP__common.Heading" String="Doc. Date"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Document Date in Document"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Post(Collection(SAP__self.FixedAssetRevaluation_Type))/PostingDate">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__core.OptionalParameter"/>
+                <Annotation Term="SAP__common.Label" String="Posting Date"/>
+                <Annotation Term="SAP__common.Heading" String="Pstng Date"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Posting Date in the Document"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Post(Collection(SAP__self.FixedAssetRevaluation_Type))/AssetValueDate">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__core.OptionalParameter"/>
+                <Annotation Term="SAP__common.Label" String="Asset Value Date"/>
+                <Annotation Term="SAP__common.Heading" String="AssetValDate"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Post(Collection(SAP__self.FixedAssetRevaluation_Type))/DebitCreditCode">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__core.OptionalParameter"/>
+                <Annotation Term="SAP__common.Label" String="Debit/Credit Code"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Post(Collection(SAP__self.FixedAssetRevaluation_Type))/FixedAssetYearOfAcqnCode">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__core.OptionalParameter"/>
+                <Annotation Term="SAP__common.Label" String="UI Control of Transaction Amounts (Current/Previous)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Post(Collection(SAP__self.FixedAssetRevaluation_Type))/DocumentReferenceID">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__core.OptionalParameter"/>
+                <Annotation Term="SAP__common.Label" String="Reference"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Reference Document Number"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Post(Collection(SAP__self.FixedAssetRevaluation_Type))/FxdAstRevalAcqnAmtInFC">
+                <Annotation Term="SAP__measures.ISOCurrency" Path="FxdAstRevalFuncnlCrcy"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__core.OptionalParameter"/>
+                <Annotation Term="SAP__common.Label" String="Revaluation Amount for APC"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Revaluation APC Amount"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Post(Collection(SAP__self.FixedAssetRevaluation_Type))/FxdAstRevalCYrDeprAmtInFC">
+                <Annotation Term="SAP__measures.ISOCurrency" Path="FxdAstRevalFuncnlCrcy"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__core.OptionalParameter"/>
+                <Annotation Term="SAP__common.Label" String="Revaluation of Current Year Depreciation"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Revaluation Amount of Current Year Depreciation"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Post(Collection(SAP__self.FixedAssetRevaluation_Type))/FxdAstRevalPrYrDeprAmtInFC">
+                <Annotation Term="SAP__measures.ISOCurrency" Path="FxdAstRevalFuncnlCrcy"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__core.OptionalParameter"/>
+                <Annotation Term="SAP__common.Label" String="Revaluation of Prior Year Depreciation"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Revaluation Amount of Previous Year Depreciation"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Post(Collection(SAP__self.FixedAssetRevaluation_Type))/FxdAstRevalFuncnlCrcy">
+                <Annotation Term="SAP__common.IsCurrency"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__core.OptionalParameter"/>
+                <Annotation Term="SAP__common.Label" String="Currency"/>
+                <Annotation Term="SAP__common.Heading" String="Crcy"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Currency Key"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Post(Collection(SAP__self.FixedAssetRevaluation_Type))/AccountingDocumentType">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__core.OptionalParameter"/>
+                <Annotation Term="SAP__common.Label" String="Document Type"/>
+                <Annotation Term="SAP__common.Heading" String="Doc. Type"/>
+            </Annotations>
+            <Annotations Target="SAP__self.FixedAssetRevaluation_Type">
+                <Annotation Term="SAP__common.Label" String="Fixed Asset Revaluation Posting"/>
+                <Annotation Term="SAP__common.Messages" Path="SAP__Messages"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/FixedAssetRevaluation">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="NonUpdatableNavigationProperties">
+                            <Collection>
+                                <PropertyPath>_FixedAssetPostingItemAmount</PropertyPath>
+                                <PropertyPath>_FixedAssetPostingLedger</PropertyPath>
+                                <PropertyPath>_FixedAssetPostingValuation</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__core.OptimisticConcurrency">
+                    <Collection/>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="FxdAstRevalAcqnAmtInFC"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="FxdAstRevalCYrDeprAmtInFC"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="FxdAstRevalPrYrDeprAmtInFC"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.FixedAssetRevalItemAmount_Type/FixedAssetPostingUUID">
+                <Annotation Term="SAP__common.Label" String="Posting UUID"/>
+                <Annotation Term="SAP__common.Heading" String="Fixed Asset Posting UUID"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Fixed Asset Posting: UUID"/>
+            </Annotations>
+            <Annotations Target="SAP__self.FixedAssetRevaluationLedger_Type/FixedAssetPostingUUID">
+                <Annotation Term="SAP__common.Label" String="Posting UUID"/>
+                <Annotation Term="SAP__common.Heading" String="Fixed Asset Posting UUID"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Fixed Asset Posting: UUID"/>
+            </Annotations>
+            <Annotations Target="SAP__self.FixedAssetRevalValuation_Type/FixedAssetPostingUUID">
+                <Annotation Term="SAP__common.Label" String="Posting UUID"/>
+                <Annotation Term="SAP__common.Heading" String="Fixed Asset Posting UUID"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Fixed Asset Posting: UUID"/>
+            </Annotations>
+            <Annotations Target="SAP__self.FixedAssetRevaluation_Type/AssetValueDate">
+                <Annotation Term="SAP__common.Label" String="Asset Value Date"/>
+                <Annotation Term="SAP__common.Heading" String="AssetValDate"/>
+            </Annotations>
+            <Annotations Target="SAP__self.FixedAssetRevaluation_Type/AccountingDocumentHeaderText">
+                <Annotation Term="SAP__common.Label" String="Document Header Text"/>
+            </Annotations>
+            <Annotations Target="SAP__self.FixedAssetRevaluation_Type/AssignmentReference">
+                <Annotation Term="SAP__common.Label" String="Assignment"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Assignment Number"/>
+            </Annotations>
+            <Annotations Target="SAP__self.FixedAssetRevaluation_Type/DocumentItemText">
+                <Annotation Term="SAP__common.Label" String="Text"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Item Text"/>
+            </Annotations>
+            <Annotations Target="SAP__self.D_FIXEDASSETPOSTREVALLEDGERP/_Valuation/AssetDepreciationArea">
+                <Annotation Term="SAP__common.Label" String="Depreciation area"/>
+                <Annotation Term="SAP__common.Heading" String="Ar."/>
+                <Annotation Term="SAP__common.QuickInfo" String="Real depreciation area"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SAP__VIRTUAL_CO_TY_1/_ItemAmount/AssetDepreciationArea">
+                <Annotation Term="SAP__common.Label" String="Depreciation area"/>
+                <Annotation Term="SAP__common.Heading" String="Ar."/>
+                <Annotation Term="SAP__common.QuickInfo" String="Real depreciation area"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SAP__VIRTUAL_CO_TY_1/_ItemAmount/SubLedgerAcctLineItemType">
+                <Annotation Term="SAP__common.Label" String="Line Item Type"/>
+                <Annotation Term="SAP__common.Heading" String="Subledger-Specific Line Item Type"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Subledger-Specific Line Item Type"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SAP__VIRTUAL_CO_TY_1/_ItemAmount/TransactionCurrency">
+                <Annotation Term="SAP__common.Label" String="Transaction Currency"/>
+                <Annotation Term="SAP__common.Heading" String="TrCrcy"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SAP__VIRTUAL_CO_TY_1/_ItemAmount/CompanyCodeCurrency">
+                <Annotation Term="SAP__common.Label" String="CompanyCode Currency"/>
+                <Annotation Term="SAP__common.Heading" String="CCCrcy"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Company Code Currency"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SAP__VIRTUAL_CO_TY_1/_ItemAmount/GlobalCurrency">
+                <Annotation Term="SAP__common.Label" String="Global Currency"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SAP__VIRTUAL_CO_TY_1/_ItemAmount/FreeDefinedCurrency1">
+                <Annotation Term="SAP__common.Label" String="Free Defined Crcy 1"/>
+                <Annotation Term="SAP__common.Heading" String="Freely Defined Currency 1"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Freely Defined Currency 1"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SAP__VIRTUAL_CO_TY_1/_ItemAmount/FreeDefinedCurrency2">
+                <Annotation Term="SAP__common.Label" String="Free Defined Crcy 2"/>
+                <Annotation Term="SAP__common.Heading" String="Freely Defined Currency 2"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Freely Defined Currency 2"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SAP__VIRTUAL_CO_TY_1/_ItemAmount/FreeDefinedCurrency3">
+                <Annotation Term="SAP__common.Label" String="Free Defined Crcy 3"/>
+                <Annotation Term="SAP__common.Heading" String="Freely Defined Currency 3"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Freely Defined Currency 3"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SAP__VIRTUAL_CO_TY_1/_ItemAmount/FreeDefinedCurrency4">
+                <Annotation Term="SAP__common.Label" String="Free Defined Crcy 4"/>
+                <Annotation Term="SAP__common.Heading" String="Freely Defined Currency 4"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Freely Defined Currency 4"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SAP__VIRTUAL_CO_TY_1/_ItemAmount/FreeDefinedCurrency5">
+                <Annotation Term="SAP__common.Label" String="Free Defined Crcy 5"/>
+                <Annotation Term="SAP__common.Heading" String="Freely Defined Currency 5"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Freely Defined Currency 5"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SAP__VIRTUAL_CO_TY_1/_ItemAmount/FreeDefinedCurrency6">
+                <Annotation Term="SAP__common.Label" String="Free Defined Crcy 6"/>
+                <Annotation Term="SAP__common.Heading" String="Freely Defined Currency 6"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Freely Defined Currency 6"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SAP__VIRTUAL_CO_TY_1/_ItemAmount/FreeDefinedCurrency7">
+                <Annotation Term="SAP__common.Label" String="Free Defined Crcy 7"/>
+                <Annotation Term="SAP__common.Heading" String="Freely Defined Currency 7"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Freely Defined Currency 7"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SAP__VIRTUAL_CO_TY_1/_ItemAmount/FreeDefinedCurrency8">
+                <Annotation Term="SAP__common.Label" String="Free Defined Crcy 8"/>
+                <Annotation Term="SAP__common.Heading" String="Freely Defined Currency 8"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Freely Defined Currency 8"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SAP__VIRTUAL_CO_TY_1/_ItemAmount/AmountInTransactionCurrency">
+                <Annotation Term="SAP__common.Label" String="Amnt in Trans. Crcy"/>
+                <Annotation Term="SAP__common.Heading" String="Amnt in TransactionCrcy"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Amount in Transaction Currency"/>
+                <Annotation Term="SAP__measures.ISOCurrency" Path="TransactionCurrency"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SAP__VIRTUAL_CO_TY_1/_ItemAmount/AmountInCompanyCodeCurrency">
+                <Annotation Term="SAP__common.Label" String="Amnt in Comp Cd Crcy"/>
+                <Annotation Term="SAP__common.Heading" String="Amount in Comp Cd Crcy"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Amount in Company Code Currency"/>
+                <Annotation Term="SAP__measures.ISOCurrency" Path="CompanyCodeCurrency"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SAP__VIRTUAL_CO_TY_1/_ItemAmount/AmountInGlobalCurrency">
+                <Annotation Term="SAP__common.Label" String="Amnt in Global Crcy"/>
+                <Annotation Term="SAP__common.Heading" String="Amount in Global Crcy"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Amount in Global Currency"/>
+                <Annotation Term="SAP__measures.ISOCurrency" Path="GlobalCurrency"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SAP__VIRTUAL_CO_TY_1/_ItemAmount/AmountInFreeDefinedCurrency1">
+                <Annotation Term="SAP__common.Label" String="Amount in Currency 1"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Amount in Freely Defined Currency 1"/>
+                <Annotation Term="SAP__measures.ISOCurrency" Path="FreeDefinedCurrency1"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SAP__VIRTUAL_CO_TY_1/_ItemAmount/AmountInFreeDefinedCurrency2">
+                <Annotation Term="SAP__common.Label" String="Amount in Currency 2"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Amount in Freely Defined Currency 2"/>
+                <Annotation Term="SAP__measures.ISOCurrency" Path="FreeDefinedCurrency2"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SAP__VIRTUAL_CO_TY_1/_ItemAmount/AmountInFreeDefinedCurrency3">
+                <Annotation Term="SAP__common.Label" String="Amount in Currency 3"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Amount in Freely Defined Currency 3"/>
+                <Annotation Term="SAP__measures.ISOCurrency" Path="FreeDefinedCurrency3"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SAP__VIRTUAL_CO_TY_1/_ItemAmount/AmountInFreeDefinedCurrency4">
+                <Annotation Term="SAP__common.Label" String="Amount in Currency 4"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Amount in Freely Defined Currency 4"/>
+                <Annotation Term="SAP__measures.ISOCurrency" Path="FreeDefinedCurrency4"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SAP__VIRTUAL_CO_TY_1/_ItemAmount/AmountInFreeDefinedCurrency5">
+                <Annotation Term="SAP__common.Label" String="Amount in Currency 5"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Amount in Freely Defined Currency 5"/>
+                <Annotation Term="SAP__measures.ISOCurrency" Path="FreeDefinedCurrency5"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SAP__VIRTUAL_CO_TY_1/_ItemAmount/AmountInFreeDefinedCurrency6">
+                <Annotation Term="SAP__common.Label" String="Amount in Currency 6"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Amount in Freely Defined Currency 6"/>
+                <Annotation Term="SAP__measures.ISOCurrency" Path="FreeDefinedCurrency6"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SAP__VIRTUAL_CO_TY_1/_ItemAmount/AmountInFreeDefinedCurrency7">
+                <Annotation Term="SAP__common.Label" String="Amount in Currency 7"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Amount in Freely Defined Currency 7"/>
+                <Annotation Term="SAP__measures.ISOCurrency" Path="FreeDefinedCurrency7"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SAP__VIRTUAL_CO_TY_1/_ItemAmount/AmountInFreeDefinedCurrency8">
+                <Annotation Term="SAP__common.Label" String="Amount in Currency 8"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Amount in Freely Defined Currency 8"/>
+                <Annotation Term="SAP__measures.ISOCurrency" Path="FreeDefinedCurrency8"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SAP__VIRTUAL_CO_TY_1/_Ledger/Ledger">
+                <Annotation Term="SAP__common.Label" String="Ledger"/>
+                <Annotation Term="SAP__common.Heading" String="Ld"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Ledger in General Ledger Accounting"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SAP__VIRTUAL_CO_TY_1/_Ledger/_Valuation/AssetDepreciationArea">
+                <Annotation Term="SAP__common.Label" String="Depreciation area"/>
+                <Annotation Term="SAP__common.Heading" String="Ar."/>
+                <Annotation Term="SAP__common.QuickInfo" String="Real depreciation area"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Post(Collection(SAP__self.FixedAssetRevaluation_Type))/AccountingDocumentHeaderText">
+                <Annotation Term="SAP__core.OptionalParameter"/>
+                <Annotation Term="SAP__common.Label" String="Document Header Text"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Post(Collection(SAP__self.FixedAssetRevaluation_Type))/AssignmentReference">
+                <Annotation Term="SAP__core.OptionalParameter"/>
+                <Annotation Term="SAP__common.Label" String="Assignment"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Assignment Number"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Post(Collection(SAP__self.FixedAssetRevaluation_Type))/DocumentItemText">
+                <Annotation Term="SAP__core.OptionalParameter"/>
+                <Annotation Term="SAP__common.Label" String="Text"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Item Text"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Post(Collection(SAP__self.FixedAssetRevaluation_Type))/_ItemAmount">
+                <Annotation Term="SAP__core.OptionalParameter"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Post(Collection(SAP__self.FixedAssetRevaluation_Type))/_Ledger">
+                <Annotation Term="SAP__core.OptionalParameter"/>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

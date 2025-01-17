@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
+specVersion: "3.1"
+metadata:
+  name: com.zfidegerleme
+type: application
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**
+  customTasks:
+    - name: deploy-to-abap
+      afterTask: generateCachebusterInfo
+      configuration:
+        verbose: true
+        target:
+          destination: J4W_080
+          url: https://my411926-api.s4hana.cloud.sap
+          scp: true
+        app:
+          name: ZFI_DEGERLEME
+          description: Duran Varlık Yeniden Değerleme Verilerini Kaydet
+          package: zfi
+          transport: J4WK900514
+        exclude:
+          - /test/

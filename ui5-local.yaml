@@ -1,0 +1,57 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
+specVersion: "3.1"
+metadata:
+  name: com.zfidegerleme
+type: application
+framework:
+  name: SAPUI5
+  version: 1.124.10
+  libraries:
+    - name: sap.m
+    - name: sap.ui.core
+    - name: sap.ushell
+    - name: themelib_sap_horizon
+server:
+  customMiddleware:
+    - name: fiori-tools-appreload
+      afterMiddleware: compression
+      configuration:
+        port: 35729
+        path: webapp
+        delay: 300
+    - name: fiori-tools-preview
+      afterMiddleware: fiori-tools-appreload
+      configuration:
+        component: com.zfidegerleme
+        ui5Theme: sap_horizon
+    - name: fiori-tools-proxy
+      afterMiddleware: compression
+      configuration:
+        ignoreCertError: false # If set to true, certificate errors will be ignored. E.g. self-signed certificates will be accepted
+        backend:
+          - scp: true
+            authenticationType: reentranceTicket # SAML support for vscode
+            path: /sap
+            url: https://my411926-api.s4hana.cloud.sap
+            destination: J4W_080
+          - path: /sap
+            url: https://23bf02f0-9d4d-4fe7-ae57-cab54ffafb1e.abap.us10.hana.ondemand.com
+            destination: abap
+            scp: true
+            authenticationType: OAuth2UserTokenExchange
+          - path: /sap/opu/odata4/sap/api_fixedassetrevaluation/srvd_a2x/sap/fixedassetrevaluation/0001/
+            url: https://my411926-api.s4hana.cloud.sap
+            destination: J4W_080
+            scp: true
+            authenticationType: SAMLAssertion
+    - name: sap-fe-mockserver
+      beforeMiddleware: csp
+      configuration:
+        mountPath: /
+        services:
+          - urlPath: /sap/opu/odata4/sap/zui_fi_setdeprlimit_o4/srvd/sap/zui_fi_setdeprlimit_o4/0001
+            metadataPath: ./webapp/localService/metadata.xml
+            mockdataPath: ./webapp/localService/data
+            generateMockData: true
+        annotations: []
